@@ -1,0 +1,44 @@
+#include 'TOTVS.CH'
+#include 'Protheus.ch'
+
+/*/{Protheus.doc} zTget
+description
+@type function
+@version 1.0
+@author Placido
+@since 23/09/2020
+@see http://efacildemais.blogspot.com/2011/06/msadvsize-dimensionamento-de-janelas-no.html
+@see https://tdn.totvs.com/display/tec/Construtor+TDialog%3ANew
+@see https://tdn.totvs.com/display/tec/Construtor+TButton%3ACreate
+@see https://tdn.totvs.com/display/tec/TSay
+@see https://tdn.totvs.com/display/tec/TDialog
+@see https://tdn.totvs.com/pages/viewpage.action?pageId=22479526 //Picture
+@see https://tdn.totvs.com/pages/viewpage.action?pageId=24347085 //Space
+@see https://tdn.totvs.com/display/tec/Construtor+TGet%3ANew
+
+/*/
+User Function zTget()
+Local oDlg1
+Local aSize := MsAdvsize() //Função interna que retorna um array com as coordenadas/dimensoes da tela
+Local oSay1
+Local oButton1
+
+//Começamos aqui à criar o TGet
+Local cGet1 := Space(15)    //variável que irá capturar o que for digitado, pra cada Tget, se faz necessário uma variável caracter para armazenar o que foi digitado
+Local oGet1    //variável responsável por receber a Classe/construtor TGet
+
+//Local cGet2 := Space(20)
+//Local oGet2
+
+oDlg1       := TDialog():New(aSize[7],aSize[1],aSize[6],aSize[5],"Aprendendo a usar o TGET",,,,,CLR_BLACK,CLR_WHITE,,,.T.)
+oSay1       := TSay():New(10,10,{||'Digite o seu nome'},oDlg1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+oGet1       := TGet():New(30,10,{|u| IIF(Pcount()>0,cGet1:=u,cGet1)},oDlg1,60,10,"@!",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cGet1,,,, )
+
+oSay2       := TSay():New(10,10,{||'Digite o seu nome'},oDlg1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+oGet2       := TGet():New(30,10,{|u| IIF(Pcount()>0,cGet1:=u,cGet1)},oDlg1,60,10,"@!",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cGet1,,,, )
+
+oButton1    := TButton():New(50, 10, "Mostrar Nome", oDlg1,{|| MsgInfo(cGet1,"Conteúdo digitado")}, 60,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+
+oDlg1:Activate(,,,.F.)
+
+return

@@ -1,0 +1,24 @@
+
+#include 'Protheus.ch'
+
+
+User Function MT100LOK()
+Local lRet := .T. 
+Local nAcolsTES := aScan(aHeader, {|x| AllTrim(x[2]) == "D1_TES"})
+Local nAcolsQUANT := aScan(aHeader, {|x| AllTrim(x[2]) == "D1_QUANT"})
+                    //n e igual linha nAcolsTES= coluna
+Local cTES := aCols[n, nAcolsTES]
+Local nQUANT := aCols[n, nAcolsQUANT]
+
+IF nQUANT >=5 .AND. !(cTES$SuperGetMV("MV_YTESQTD"))
+
+lRet := .F.
+
+Alert("Para quantidades iguais ou superiores a 5 deve usar as TES especificas"+Chr(10)+Chr(13)+;
+"Consulte o seu fiscal ou financeiro","Alert")
+
+ENDIF
+
+
+
+Return lRet

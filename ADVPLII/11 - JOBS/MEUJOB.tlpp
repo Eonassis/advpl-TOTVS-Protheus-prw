@@ -1,0 +1,9 @@
+#include "Protheus.ch"
+#include "Totvs.ch"
+
+
+User Function MeuJob()
+
+ConOut("O meu job esta sendo executado!")
+
+return

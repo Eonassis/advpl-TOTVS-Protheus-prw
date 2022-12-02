@@ -1,0 +1,18 @@
+
+#INCLUDE 'PROTHEUS.CH'
+
+
+User Function  M030DEL()
+
+Local lRet := .T.// se f nao deia excluir se t deixa excluir cliente 
+
+//Local aArea := GetArea()
+
+
+IF SA1->A1_PESSOA = "J"
+lRet := .F.
+Alert("nao e possivel excluir o cliente ele e PJ")
+
+ENDIF
+
+return(lRet)

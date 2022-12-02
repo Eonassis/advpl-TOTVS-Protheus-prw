@@ -1,0 +1,44 @@
+
+#include 'Protheus.ch'
+
+
+User Function M410LIOK()
+Local lRet := .T. 
+//tabela do cabecalho do pedido de venda SC5
+//tabela do itens do pedido de venda SC6
+Local nCount
+Local nContasIguais :=0
+
+
+Local nAcolsQTDVen := aScan(aHeader, {|x| AllTrim(x[2]) == "C6_QTDVEN"})//BUSCA A POSICAO DA COLUNA QUANTIDADE VENDIDA
+Local nQTDVen := aCols[n, nAcolsQTDVen ]
+
+
+Local nAcolsCodProd := aScan(aHeader, {|x| AllTrim(x[2]) == "C6_PRODUTO"})//BUSCA A POSICAO DA COLUNA QUANTIDADE VENDIDA
+Local nCodProd := aCols[n, nAcolsCodProd ]
+
+
+FOR nCount := 1 to Len(aCols)
+
+    IF aCols[nCount, nAcolsCodProd ] = nCodProd
+            nContasIguais++
+    ENDIF
+NEXT nCount
+
+
+IF nContasIguais>1
+lRet := .F.
+Alert("NAO E  permitindo mesmo iten IGUAL NO MESMO PEDIDO", "promocao de natal")
+
+ELSE 
+
+    IF nQTDVen >10
+    lRet := .F.
+    Alert("neste natal nao estamos permitindo mais de 10 unidades do mesmo iten", "promocao de natal ")
+
+    ENDIF
+ENDIF
+
+
+
+Return lRet

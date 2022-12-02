@@ -1,0 +1,13 @@
+#include 'TOTVS.CH'
+#include 'Protheus.ch'
+#include 'Topconn.ch'
+
+
+
+User Function  CRIASZ1()
+
+dbSelectArea("SZ1")
+DBSetOrder(1)
+//dbCloseArea("SZ1")
+
+return

@@ -1,0 +1,10 @@
+#include "Protheus.ch"
+#include "Totvs.ch"
+
+
+User Function SEGUNDOJOB(cPar1, cPar2)
+
+ConOut(cPar1) //Mostrar o primeiro parametro do Job
+ConOut(cPar2) //Mostrar o segundo parametro do Job
+
+return

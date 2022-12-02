@@ -1,0 +1,61 @@
+#include 'Totvs.ch'
+#include 'Protheus.ch'
+
+
+/*/{Protheus.doc} zTFolder
+description
+@type function
+@version 
+@author Placido
+@since 25/09/2020
+@return return_type, return_description
+@see https://tdn.totvs.com/display/tec/TFolder
+@see https://tdn.totvs.com/display/tec/TFolder%3ANew
+/*/
+User Function zTFolder()
+Local oDlg1
+Local oFolder
+Local aFolder 
+
+Local oSay1
+Local oSay2
+Local oSay3
+
+Local oGet1
+Local oGet2
+Local oGet3
+
+Local cGet1
+Local cGet2
+Local cGet3
+
+Local oButton1
+Local oButton2
+Local oButton3
+
+oDlg1 := TDialog():New(0,0,300,400,'Painel de ABAS',,,,,CLR_BLACK,CLR_WHITE,,,.T.)
+
+aFolder := {"Aba01","Aba02","Aba03"}
+oFolder := TFolder():New(0,0,aFolder,aFolder,oDlg1,,,, .T.,, 200,200 )
+
+
+ // Insere um TGet e uma TSay em cada aba da folder
+oSay1         := TSay():New(01,01,{||'Nome ABA1'},oFolder:aDialogs[1],,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+cGet1         := Space(30)
+oGet1         := TGet():New( 10,01,{|u| IIF(Pcount()>0,cGet1:=u,cGet1)},oFolder:aDialogs[1],096,009,"",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cGet1,,,, )
+oButton1      := TButton():New(25, 10, "Executar Aba01", oFolder:aDialogs[1],{|| MsgInfo(cGet1,"Conteúdo Digitado")}, 60,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+
+oSay2         := TSay():New(01,01,{||'Nome ABA2'},oFolder:aDialogs[2],,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+cGet2         := Space(30)
+oGet2         := TGet():New( 10,01,{|u| IIF(Pcount()>0,cGet2:=u,cGet2)},oFolder:aDialogs[2],096,009,"",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cGet2,,,, )
+oButton2      := TButton():New(25, 10, "Executar Aba02", oFolder:aDialogs[2],{|| MsgInfo(cGet2,"Conteúdo Digitado")}, 60,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+
+oSay3         := TSay():New(01,01,{||'Nome ABA3'},oFolder:aDialogs[3],,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+cGet3         := Space(30)
+oGet3         := TGet():New( 10,01,{|u| IIF(Pcount()>0,cGet3:=u,cGet3)},oFolder:aDialogs[3],096,009,"",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cGet3,,,, )
+oButton3      := TButton():New(25, 10, "Executar Aba03", oFolder:aDialogs[3],{|| MsgInfo(cGet3,"Conteúdo Digitado")}, 60,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+
+
+oDlg1:Activate(,,,.T.)
+
+return

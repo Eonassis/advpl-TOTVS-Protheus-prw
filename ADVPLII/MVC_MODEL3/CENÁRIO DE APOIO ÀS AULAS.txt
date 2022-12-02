@@ -1,0 +1,27 @@
+1ª Validação
+Esta implementação, tem como objetivo validar se um usuário está autorizado à abrir as rotinas da função que está dentro do menu.
+
+Ao entrar em Incluir, por exemplo, o meu programa deverá verificar, se o código do usuário está dentro do parametro MV_XUSMVC
+
+Se estiver, libera, senão, bloqueia.
+
+2ª Validação
+Preciso que para abrir os chamados, o Administrador consiga abrir em nome de outros usuários, bem como em outras datas.
+Mas... Outros usuários só podem abrir com a data do sistema, e para os seus usuários, ou seja, já trazer a data e código de usuário automaticamente.
+
+----------------------------
+Cenário de utilização do Post Validation - Pós Validação
+Imagine que dentro do sistema de chamados, haja uma regra
+para que os usuários, administradores, etc, tenham que respeitar
+uma quantidade mínima de caracteres para abertura de chamados..
+Por exemplo, já pensou se o sistema permitir abrir um chamado somente com 
+Erro Compras... É um título de chamado muito vago e vazio...
+Sendo assim, o Gestor de TI da Cervejaria Debug, pediu ao estagiário
+que fizesse uma alteração dentro do fonte mvc para bloquear
+a abertura de chamados onde o campo título de chamado tenha 
+menos de 15 caracteres.
+
+
+
+
+

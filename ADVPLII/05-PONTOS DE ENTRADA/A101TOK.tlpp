@@ -1,0 +1,23 @@
+
+#INCLUDE 'PROTHEUS.CH'
+
+
+
+/*/{Protheus.doc} A010TOK
+executa apos incluir ou alterar um produto
+@type function
+@version  1.0
+@author TOTVS
+@since 24/09/2022
+//return lRet, variavel que bloqueia a alteracao no produto 
+/*/
+User Function  A010TOK()
+
+Local lRet := .T.// se f nao deia incluir se t deixa incluir 
+
+
+IF Inclui //varialvel inclui e altera 
+   lRet := u_A010TOKVALID(M->B1_GRUPO)
+ENDIF
+
+return(lRet)

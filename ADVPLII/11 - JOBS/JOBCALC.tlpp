@@ -1,0 +1,16 @@
+#include "Protheus.ch"
+#include "Totvs.ch"
+
+
+User Function JOBCALC(nPar1, nPar2)
+
+nPar1   := Val(nPar1) //Converto de CARACTER para NÚMERO
+nPar2   := Val(nPar2) 
+
+
+ConOut("Soma..............->"+cValToChar(nPar1 + nPar2)) //Converto novamente porém para texto para concatenar
+ConOut("Subtracao.........->"+cValToChar(nPar1 - nPar2)) 
+ConOut("Divisao...........->"+cValToChar(nPar1 / nPar2)) 
+ConOut("Multiplicacao.....->"+cValToChar(nPar1 * nPar2)) 
+
+return

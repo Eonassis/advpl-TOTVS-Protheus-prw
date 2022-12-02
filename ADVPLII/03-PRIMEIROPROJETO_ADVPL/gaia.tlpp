@@ -1,0 +1,15 @@
+#include 'TOTVS.CH'
+#include 'Protheus.ch'
+
+
+/*/{Protheus.doc} Projeto01
+Cria uma tela funcional com 3 abas e diversos elementos visuais
+@type function
+@version 
+@author Placido
+@since 03/10/2020
+@return return_type, return_description
+@see https://tdn.totvs.com/pages/viewpage.action?pageId=203771190
+@see https://tdn.totvs.com/display/tec/TBitmap
+/*/
+User Function  dwewedwe()

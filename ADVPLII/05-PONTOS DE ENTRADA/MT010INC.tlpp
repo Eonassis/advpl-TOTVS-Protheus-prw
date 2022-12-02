@@ -1,0 +1,10 @@
+#include 'Protheus.ch'
+
+//ponto de entrada apos a inclusao de um produto
+
+User Function  MT010INC()
+
+Msginfo("Voce acabou de inserir o Produto:"+Chr(10)+Chr(13)+;
+M->B1_DESC)
+
+return

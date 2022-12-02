@@ -1,0 +1,29 @@
+#include 'Totvs.ch'
+#include 'Protheus.ch'
+
+/*/{Protheus.doc} zTRadmenu
+Criando uma janela de opções com TRadMenu
+@type function
+@version 
+@author Placido
+@since 25/09/2020
+@return return_type, return_description
+@see https://tdn.totvs.com/display/tec/TRadMenu
+/*/
+User Function zTRadmenu()
+Local oDlg1      // 1        2           3           4       5           6           7               8               9               10
+Local aOpcoes := {"Feliz","Animado","Eufórico","Triste","Pensativo","Protheuzando","Codificando","Vagando na net","Só no Insta","O pai tá on"}
+Local nOpcao  := 10
+Local oRadio //Variável que armazenará o objeto
+Local oButton1
+
+oDlg1 := TDialog():New(0,0,500,500,'Painel de Opções',,,,,CLR_BLACK,CLR_WHITE,,,.T.)
+
+oRadio := tRadMenu():New(010,010,aOpcoes,{|u| iif(PCount()>0,nOpcao :=u,nOpcao )},oDlg1,,,,,,,,100,20,,,,.T.)
+
+oButton1   := TButton():New(10, 60, "Mostrar Escolha", oDlg1,;
+{|| MsgInfo(aOpcoes[nOpcao],"Hoje você está")}, 60,15,,,.F.,.T.,.F.,,.F.,,,.F. ) // Chama tela de Clientes
+
+oDlg1:Activate(,,,.T.)
+
+return

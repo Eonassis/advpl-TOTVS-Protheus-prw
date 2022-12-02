@@ -1,0 +1,31 @@
+#include 'Protheus.ch'
+
+//ponto de entrada apos a inclusao de um cliente
+/*/{Protheus.doc} MT030INC
+ponto de entrada apos a inclusao de um cliente inserido um cod de usuario 
+@type function
+@version  1.0
+@author Eonassis
+@since 24/09/2022
+/*/
+User Function  M030INC()
+Local aArea := GetArea()
+
+
+IF PARAMIXB <> 3
+
+Msginfo("Voce acabou de inserir o com sucesso o Cliente:"+Chr(10)+Chr(13)+;
+M->A1_NOME)
+
+Reclock("SA1", .F.)
+
+SA1->A1_XUSRINC  := RetCodUsr() //retorna o codigo do ususario  _cUserID
+    
+MsUnlock()
+
+ENDIF
+
+Restarea(aArea) //libera area
+
+
+return
